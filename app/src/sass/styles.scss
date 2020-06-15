@@ -1,0 +1,52 @@
+@import './theme.scss';
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+*:focus {
+    outline: none;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+    padding: 0px;
+    margin: 0px;
+  
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+    height: 100%;
+  }
+
+body{
+    font-size: $font-size;
+    box-sizing: border-box;
+    -ms-overflow-style: scrollbar;
+    height: 100%;
+    min-height: 100vh;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1170px;
+    margin: auto;
+    padding: 0px 15px;
+    position: relative;
+  
+    @media (min-width: 768px) {
+      width: 750px;
+    }
+    @media (min-width: 992px) {
+      width: 970px;
+    }
+    @media (min-width: 1200px) {
+      width: 1170px;
+    }
+  }
