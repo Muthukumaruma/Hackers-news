@@ -2,4 +2,42 @@
 
 .data-table{
     width: 100%;
+    border-spacing:0px;
+    margin-top: 15px;
+    thead{
+        tr{
+            background-color: $theme-color ;
+            td{
+                border: 0px;
+                text-align: center;
+                color: #fff;
+                padding: 5px;
+                &:last-child{
+                    text-align: left;
+                }
+            }
+        }
+    }
+    tbody{
+        tr{
+            &:nth-child(odd){
+                 background-color: #eee;
+            }
+            td{
+                text-align: center;
+                padding: 5px;
+                &:last-child{
+                    text-align: left;
+                }
+                
+            }
+
+        }
+    }
+}
+.pagination{
+    font-weight: bold;
+    color: $theme-color;
+    text-align: right ;
+    margin: 10px 0px;
 }

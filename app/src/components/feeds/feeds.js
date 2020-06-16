@@ -3,6 +3,7 @@ import NETWORK from '../utls/network';
 import ReactHtmlParser from "react-html-parser";
 import Age from './age';
 import helper from '../utls/helpers'
+import Chart from '../chart/chart'
 import '../../sass/components/_table.scss'
 
 class Feed extends Component {
@@ -32,6 +33,7 @@ class Feed extends Component {
 
     getData = (page)=>{
         NETWORK.get(`v1/search_by_date?tags=(pollopt,num_comments,poll))&page=${page?page:0}`).then((res)=>{
+            
             this.setState({
                 loaded:true,
                 fetchData:res.data.hits,
@@ -50,12 +52,13 @@ class Feed extends Component {
 
     upVote = data=>{
 
-        this.setState((prevState) => ({
-            upVote: {                   
-                ...prevState.upVote,    // keep all other key-value pairs
-                // {data.objectID: data.points}      // update the value of specific key
-            }
-        }))
+        // this.setState((prevState) => ({
+        //     upVote: {                   
+        //         ...prevState.upVote, 
+        //            {a:2}
+        //     }
+        
+        // }))
     }
 
     render() { 
@@ -63,19 +66,19 @@ class Feed extends Component {
             return ( <>
                 <table className="data-table">
                     <thead>
-                    <tr>
+                    <tr >
                         <td>Comments</td>
                         <td>Vote Count</td>
                         <td>Up vote</td>
                         <td>News Details</td>
                     </tr>
                     </thead>
-                    
+                    <tbody >
                     {this.state.fetchData.map((data, index)=>(
-                        <tbody key={index}>
+                        <>
                             {this.state.hidenData.indexOf(data.objectID) == -1 ?(
                                 
-                                <tr >
+                                <tr key={index}>
                                     <td>{data.num_comments  != null ? data.num_comments : 0}</td>
                                     <td>{this.state.upVote[data.objectID]? this.state.upVote[data.objectID] :  data.points}</td>
                                     <td><span className="pointer" onClick={(e)=>this.upVote(data)}>&#9650; </span></td>
@@ -95,11 +98,21 @@ class Feed extends Component {
 
                             (<></>)}
 
-                        </tbody>
+                        </>
                     ))}
-                    
-                    
+                    </tbody>
                 </table>
+                <div className="pagination">
+                    {this.state.pageNo !=0 ?(
+                        <span className="pointer" onClick={(e)=>this.getData(this.state.pageNo-1)}>Previous |</span>
+                    ):(<></>)} 
+
+                    <span className="pointer" onClick={(e)=>this.getData(this.state.pageNo+1)}>Next</span>
+
+                </div>
+                <div className="chart">
+                    <Chart data={this.state.fetchData} hidenData={this.state.hidenData} />
+                </div>
             </> );
         } else{
             return(<>
