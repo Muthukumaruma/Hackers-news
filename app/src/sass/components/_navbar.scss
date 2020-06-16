@@ -1,4 +1,38 @@
 @import '../theme.scss';
 .navbar{
     background-color: $theme-color;
+    display: flex;
+    ul{
+        display: flex;
+        align-items: center;
+        li{
+            list-style: none;
+            height: 22px;
+            a{
+                padding: 0px 10px;
+                color: #000;
+                text-decoration: none;
+                border-right: 1px solid #000;
+                vertical-align: middle;
+            }
+            &:last-child{
+                a{
+                    border-right: 0px none;
+                }
+            }
+        }
+    }//ul
+
+    .logo{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-weight: bold;
+        img{
+            border: 1px solid #fff;
+            margin:2px;
+            margin-right: 10px;
+            height: 20px;
+        }
+    }
 }

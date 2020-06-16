@@ -15,7 +15,10 @@ const Navbar =(props)=>{
     return(
         <>
             <nav className="navbar">
-                <div className="logo">Hackers News</div>
+                <div className="logo">
+                    <img src="//news.ycombinator.com/y18.gif" alt="Logo" />
+                    Hackers News
+                    </div>
                 <ul className="menu">
                     {navlinks.map(nav=>(
                         <li>
