@@ -40,7 +40,7 @@ class Feed extends Component {
                 hitsPerPage:res.data.hitsPerPage,
                 pageNo:res.data.page,
                 hidenData : helper.toArray(localStorage.getItem('hidenData')),
-                upVote: helper.toObjct(localStorage.getItem('upvote')),
+                // upVote: helper.toObjct(localStorage.getItem('upvote')),
             })
         })
     }
@@ -52,13 +52,7 @@ class Feed extends Component {
 
     upVote = data=>{
 
-        // this.setState((prevState) => ({
-        //     upVote: {                   
-        //         ...prevState.upVote, 
-        //            {a:2}
-        //     }
         
-        // }))
     }
 
     render() { 
