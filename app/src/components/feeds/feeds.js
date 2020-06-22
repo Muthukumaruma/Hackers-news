@@ -51,6 +51,7 @@ class Feed extends Component {
     }
 
     upVote = data=>{
+        console.log("Trigered")
         this.setState({upVote:this.state.upVote + 1});
    
         if(localStorage.getItem(data.objectID) !== null && localStorage.getItem(data.objectID) !== ""){
@@ -59,7 +60,7 @@ class Feed extends Component {
         }else{
             localStorage.setItem(data.objectID , parseInt(data.points)+1)
         }
-            
+
         
     }
 
