@@ -51,7 +51,6 @@ class Feed extends Component {
     }
 
     vote = data=>{
-        alert('hi')
         console.log("Trigered")
         this.setState({upVote:this.state.upVote + 1});
    
@@ -68,7 +67,7 @@ class Feed extends Component {
     render() { 
         if(this.state.loaded){
             return ( <>
-            <h1>build test</h1>
+    
                 <table className="data-table">
                     <thead>
                     <tr >
