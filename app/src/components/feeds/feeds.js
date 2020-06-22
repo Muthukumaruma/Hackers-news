@@ -40,7 +40,7 @@ class Feed extends Component {
                 hitsPerPage:res.data.hitsPerPage,
                 pageNo:res.data.page,
                 hidenData : helper.toArray(localStorage.getItem('hidenData')),
-                // upVote: helper.toObjct(localStorage.getItem('upvote')),
+                upVote: 0
             })
         })
     }
@@ -51,7 +51,15 @@ class Feed extends Component {
     }
 
     upVote = data=>{
-
+        this.setState({upVote:this.state.upVote + 1});
+   
+        if(localStorage.getItem(data.objectID) !== null && localStorage.getItem(data.objectID) !== ""){
+            localStorage.setItem(data.objectID , parseInt(localStorage.getItem(data.objectID)) +1)
+            
+        }else{
+            localStorage.setItem(data.objectID , parseInt(data.points)+1)
+        }
+        
         
     }
 
@@ -74,7 +82,7 @@ class Feed extends Component {
                                 
                                 <tr key={index}>
                                     <td>{data.num_comments  != null ? data.num_comments : 0}</td>
-                                    <td>{this.state.upVote[data.objectID]? this.state.upVote[data.objectID] :  data.points}</td>
+                                    <td>{localStorage.getItem(data.objectID) !== null && localStorage.getItem(data.objectID) !== ""? localStorage.getItem(data.objectID) :  data.points}</td>
                                     <td><span className="pointer" onClick={(e)=>this.upVote(data)}>&#9650; </span></td>
                                     <td>
                                         {ReactHtmlParser(data.story_text)}
@@ -105,7 +113,7 @@ class Feed extends Component {
 
                 </div>
                 <div className="chart">
-                    <Chart data={this.state.fetchData} hidenData={this.state.hidenData} />
+                    <Chart data={this.state.fetchData} hidenData={this.state.hidenData} upVote={this.state.upVote} />
                 </div>
             </> );
         } else{

@@ -23,10 +23,10 @@ class Chart extends Component {
         var chart = this.chart
         this.props.data.map((val)=>{
             
-            if(this.props.hidenData.indexOf(val.objectID) == -1){
+            if(this.props.hidenData.indexOf(val.objectID) == -1 || this.props.upVote>0){
                 dataPoints.push({ 
                     x: parseInt(val.objectID) , 
-                    y: parseInt(val.points)
+                    y: localStorage.getItem(val.objectID) !== null && localStorage.getItem(val.objectID) !== "" ?parseInt(localStorage.getItem(val.objectID)) : parseInt(val.points)
                 })
             }
            
