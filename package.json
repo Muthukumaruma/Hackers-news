@@ -2,9 +2,10 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "config": {
-        "unsafe-perm":true
-     },
+  "engines": {
+    "node": "v12.13.0",
+    "npm": "6.12.0"
+  },
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
