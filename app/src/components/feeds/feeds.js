@@ -59,7 +59,7 @@ class Feed extends Component {
         }else{
             localStorage.setItem(data.objectID , parseInt(data.points)+1)
         }
-        
+            
         
     }
 
