@@ -16,6 +16,7 @@ class Chart extends Component {
     }
 
     componentDidUpdate(){
+        dataPoints = []
         this.setGraphData()
     }
 
