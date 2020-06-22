@@ -43,7 +43,7 @@ class Chart extends Component {
         const options = {
             animationEnabled: true,
             exportEnabled: true,
-            theme: "light2", // "light1", "dark1", "dark2"
+            theme: "light1", // "light1", "dark1", "dark2"
            
             axisY: {
                 title: "Votes",
@@ -52,7 +52,8 @@ class Chart extends Component {
             axisX: {
                 title: "Id",
                 labelAngle: 45 ,
-                titleWrap:true,
+                titleWrap:false,
+                labelAutoFit:false,
                 valueFormatString:	"########",
                
             },
