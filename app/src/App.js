@@ -1,6 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
-import Navbar from './components/navbar/navbar'
 import Feed from './components/feeds/feeds'
 import './sass/styles.scss';
 
