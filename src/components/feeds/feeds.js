@@ -46,7 +46,7 @@ class Feed extends Component {
     }
 
     hide = id=>{
-        localStorage.getItem('hidenData') == null ? localStorage.setItem("hidenData", id) : localStorage.setItem("hidenData", localStorage.getItem('hidenData')+","+id);
+        localStorage.getItem('hidenData') === null ? localStorage.setItem("hidenData", id) : localStorage.setItem("hidenData", localStorage.getItem('hidenData')+","+id);
         this.setState({hidenData: helper.toArray(localStorage.getItem('hidenData'))});
     }
 
@@ -80,7 +80,7 @@ class Feed extends Component {
                     <tbody >
                     {this.state.fetchData.map((data, index)=>(
                         <>
-                            {this.state.hidenData.indexOf(data.objectID) == -1 ?(
+                            {this.state.hidenData.indexOf(data.objectID) === -1 ?(
                                 
                                 <tr key={index}>
                                     <td>{data.num_comments  != null ? data.num_comments : 0}</td>

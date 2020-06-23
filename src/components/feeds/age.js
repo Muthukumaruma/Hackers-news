@@ -12,7 +12,7 @@ const Age = props=>{
         setAge(timeAgo.format(Date.now() - props.timestamp ));
     },[props])
 
-    if(props.timestamp && age !=0){
+    if(props.timestamp && age !==0){
         return(
         <span className="small">{age}</span>
         )

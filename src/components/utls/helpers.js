@@ -3,7 +3,7 @@ const helper = {
     toArray:(data) => {
         try{
             
-            if(data != null && data !=""){
+            if(data !== null && data !==""){
                 let splited = data.split(',')
                 let arrayed = [];
                 splited.map((val)=>{
@@ -23,7 +23,7 @@ const helper = {
 
     toObjct:(data)=>{
         try{
-            if(data != null && data !=""){
+            if(data !== null && data !==""){
                
             } else{
                 return []
