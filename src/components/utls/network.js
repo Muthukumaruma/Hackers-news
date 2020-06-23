@@ -21,10 +21,10 @@ const NETWORK = axios.create({
   );
 
   NETWORK.interceptors.response.use(
-    function(response) {
+    (response) =>{
       return response;
     },
-    function(error) {
+    (error)=> {
       try {
         //handile API errors 
   
