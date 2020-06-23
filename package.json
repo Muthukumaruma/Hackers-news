@@ -69,7 +69,7 @@
     "start": "node scripts/start.js",
     "start:production": "npm run build && npm run start:prod",
     "start:prod": "NODE_ENV=production node server",
-    "build": "npm i gulp-sass --unsafe-perm && node scripts/build.js",
+    "build": "npm i gulp-sass --unsafe-perm && npm install && node scripts/build.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
