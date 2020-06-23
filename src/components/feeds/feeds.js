@@ -84,7 +84,7 @@ class Feed extends Component {
                                 
                                 <tr key={index}>
                                     <td>{data.num_comments  !== null ? data.num_comments : 0}</td>
-                                    <td>{localStorage.getItem(data.objectID) !=== null && localStorage.getItem(data.objectID) !== ""? localStorage.getItem(data.objectID) :  data.points}</td>
+                                    <td>{localStorage.getItem(data.objectID) !== null && localStorage.getItem(data.objectID) !== ""? localStorage.getItem(data.objectID) :  data.points}</td>
                                     <td><span className="pointer" onClick={(e)=>this.vote(data)}>&#9650; </span></td>
                                     <td>
                                         {ReactHtmlParser(data.story_text)}
