@@ -10,7 +10,7 @@ const Age = props=>{
         TimeAgo.addLocale(en)
         const timeAgo = new TimeAgo('en-US');
         setAge(timeAgo.format(Date.now() - props.timestamp ));
-    },[])
+    },[props])
 
     if(props.timestamp && age !=0){
         return(
